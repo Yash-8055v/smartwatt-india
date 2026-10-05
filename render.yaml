@@ -1,0 +1,36 @@
+services:
+  # ── Backend — FastAPI web service ─────────────────────────────────────────
+  - type: web
+    name: smartwatt-india-backend
+    runtime: python
+    region: singapore           # closest to India; change to oregon/frankfurt as needed
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: MODEL_VERSION
+        value: v0.1.0
+      - key: DATA_VERSION
+        value: v0.1.0
+      - key: FRONTEND_ORIGIN
+        value: https://smartwatt-india-frontend.onrender.com   # update after T015
+      - key: PYTHON_VERSION
+        value: "3.12"
+
+  # ── Frontend — static site ─────────────────────────────────────────────────
+  # (Configured here for reference; T015 will deploy this)
+  - type: web
+    name: smartwatt-india-frontend
+    runtime: static
+    region: singapore
+    plan: free
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://smartwatt-india-backend.onrender.com

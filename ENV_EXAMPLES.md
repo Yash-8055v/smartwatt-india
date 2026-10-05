@@ -9,4 +9,4 @@ FRONTEND_ORIGIN=http://localhost:5173
 MODEL_VERSION=v0.1.0
 DATA_VERSION=v0.1.0
 
-Do not place credentials in these files.
+
