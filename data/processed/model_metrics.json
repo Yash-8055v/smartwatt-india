@@ -1,0 +1,209 @@
+{
+  "run_at_utc": "2026-10-05T19:33:18.758855+00:00",
+  "input_file": "data/processed/anomaly_features.csv",
+  "target": "lnenergy",
+  "features": {
+    "categorical": [
+      "apt",
+      "hour",
+      "dayofweek",
+      "month"
+    ],
+    "continuous": [
+      "temp_c",
+      "tt",
+      "tt2",
+      "tt3"
+    ],
+    "binary": [
+      "post",
+      "finpost",
+      "healthpost"
+    ]
+  },
+  "split": {
+    "train_fraction": 0.8,
+    "train_rows": 82953,
+    "test_rows": 20751,
+    "train_date_start": "2013-08-01 01:00:00",
+    "train_date_end": "2014-04-17 20:00:00",
+    "test_date_start": "2014-02-22 04:00:00",
+    "test_date_end": "2014-05-12 23:00:00"
+  },
+  "models": {
+    "LinearRegression": {
+      "train_metrics": {
+        "mae": 0.8523655560741937,
+        "mse": 1.3102015844626105,
+        "rmse": 1.1446403734197963,
+        "r2": 0.33547251047858695
+      },
+      "test_metrics": {
+        "mae": 0.7640242749463106,
+        "mse": 1.063040623842414,
+        "rmse": 1.031038614137421,
+        "r2": 0.21217807735531613
+      }
+    },
+    "Ridge": {
+      "train_metrics": {
+        "mae": 0.8527143252879896,
+        "mse": 1.311632398920367,
+        "rmse": 1.1452652089888906,
+        "r2": 0.33474680876149276
+      },
+      "test_metrics": {
+        "mae": 0.7329961955637889,
+        "mse": 0.9904312751237194,
+        "rmse": 0.9952041374128825,
+        "r2": 0.2659890375637569
+      },
+      "best_alpha": 100.0
+    }
+  },
+  "selected_model": "Ridge",
+  "selection_reason": "Ridge test RMSE (0.9952) \u2264 LinearRegression (1.0310). Ridge selected for regularisation stability with one-hot encoded household dummies. Best alpha=100.0.",
+  "validation": {
+    "no_duplicate_apt_timestamp": true,
+    "no_missing_predictions": true,
+    "no_temporal_leakage": true,
+    "all_households_in_test": true,
+    "row_count_preserved": true
+  },
+  "per_household": {
+    "1": {
+      "n_train": 4061,
+      "n_test": 1016,
+      "residual_mean": 0.0992358799942924,
+      "residual_std": 1.0653559490899223,
+      "residual_mae": 0.8006378937048093
+    },
+    "2": {
+      "n_train": 3438,
+      "n_test": 860,
+      "residual_mean": 0.18336769023657137,
+      "residual_std": 1.2268443150559756,
+      "residual_mae": 0.9562408756434781
+    },
+    "3": {
+      "n_train": 3801,
+      "n_test": 951,
+      "residual_mean": -0.02167766480735414,
+      "residual_std": 1.3167434442632593,
+      "residual_mae": 1.0785291089256905
+    },
+    "4": {
+      "n_train": 4173,
+      "n_test": 1044,
+      "residual_mean": 0.029363020246930705,
+      "residual_std": 0.7430769581942196,
+      "residual_mae": 0.5862709494513254
+    },
+    "5": {
+      "n_train": 3238,
+      "n_test": 810,
+      "residual_mean": -0.09480381881510913,
+      "residual_std": 1.9124714774917413,
+      "residual_mae": 1.7264677284631194
+    },
+    "6": {
+      "n_train": 3571,
+      "n_test": 893,
+      "residual_mean": 0.04104736405884925,
+      "residual_std": 1.3441785008498335,
+      "residual_mae": 0.87585423414477
+    },
+    "7": {
+      "n_train": 5248,
+      "n_test": 1312,
+      "residual_mean": 0.01452000882352503,
+      "residual_std": 1.1079627207716785,
+      "residual_mae": 0.8573796242006404
+    },
+    "8": {
+      "n_train": 5299,
+      "n_test": 1325,
+      "residual_mean": 0.15719140199796947,
+      "residual_std": 1.3056749942395938,
+      "residual_mae": 1.0281746719844316
+    },
+    "9": {
+      "n_train": 5133,
+      "n_test": 1284,
+      "residual_mean": 0.05579325061937222,
+      "residual_std": 1.0194349397886773,
+      "residual_mae": 0.7387680976433418
+    },
+    "10": {
+      "n_train": 5257,
+      "n_test": 1315,
+      "residual_mean": 0.15106045947431543,
+      "residual_std": 0.9984802575079997,
+      "residual_mae": 0.7792061618561998
+    },
+    "11": {
+      "n_train": 5280,
+      "n_test": 1321,
+      "residual_mean": 0.059691678124080584,
+      "residual_std": 0.8799859830385245,
+      "residual_mae": 0.6677608599490574
+    },
+    "12": {
+      "n_train": 3620,
+      "n_test": 906,
+      "residual_mean": 0.033443724742925604,
+      "residual_std": 1.1284501531473996,
+      "residual_mae": 0.6190781926592794
+    },
+    "13": {
+      "n_train": 4992,
+      "n_test": 1249,
+      "residual_mean": 0.06468293627596973,
+      "residual_std": 1.3003483559600266,
+      "residual_mae": 1.0207233161264504
+    },
+    "14": {
+      "n_train": 4949,
+      "n_test": 1238,
+      "residual_mean": -0.014071997021007612,
+      "residual_std": 1.0959178901474926,
+      "residual_mae": 0.9277932197266774
+    },
+    "15": {
+      "n_train": 4514,
+      "n_test": 1129,
+      "residual_mean": -0.033374602186583745,
+      "residual_std": 0.8229435537068313,
+      "residual_mae": 0.6004124104085772
+    },
+    "16": {
+      "n_train": 4952,
+      "n_test": 1239,
+      "residual_mean": 0.07988744011726971,
+      "residual_std": 0.8113054700192598,
+      "residual_mae": 0.5917869731208025
+    },
+    "17": {
+      "n_train": 4548,
+      "n_test": 1138,
+      "residual_mean": 0.07598992351574878,
+      "residual_std": 0.9967477304942084,
+      "residual_mae": 0.7352737554766683
+    },
+    "18": {
+      "n_train": 4468,
+      "n_test": 1118,
+      "residual_mean": 0.137542371370759,
+      "residual_std": 1.0385492632752857,
+      "residual_mae": 0.7712372461743913
+    },
+    "19": {
+      "n_train": 2411,
+      "n_test": 603,
+      "residual_mean": 0.14708801636928046,
+      "residual_std": 0.6507737325342628,
+      "residual_mae": 0.5078598269715674
+    }
+  },
+  "model_artifact": "ml/models/ridge_model.joblib"
+}

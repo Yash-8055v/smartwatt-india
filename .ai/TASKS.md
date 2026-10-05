@@ -1,20 +1,20 @@
 # AI Task Queue
 
 ## Priority P0 — must complete
-- [ ] T001 Download dataset from official Harvard Dataverse source.
-- [ ] T002 Inspect all `.dta` files and identify best hourly electricity table.
-- [ ] T003 Create reproducible preprocessing script.
-- [ ] T004 Produce `data/processed/hourly_energy.csv`.
-- [ ] T005 Build EDA notebook/script and save key findings.
-- [ ] T006 Implement statistical anomaly features.
-- [ ] T007 Train chronological Linear/Ridge Regression baseline.
-- [ ] T008 Evaluate MAE/RMSE/R2.
-- [ ] T009 Implement controlled synthetic anomaly benchmark.
-- [ ] T010 Build FastAPI backend.
-- [ ] T011 Build React frontend.
-- [ ] T012 Integrate frontend/backend.
-- [ ] T013 Test.
-- [ ] T014 Deploy backend.
+- [x] T001 Download dataset from official Harvard Dataverse source. DONE
+- [x] T002 Inspect all `.dta` files and identify best hourly electricity table. DONE — primary table: Table_9_3_Final.dta
+- [x] T003 Create reproducible preprocessing script. DONE — ml/preprocess.py; outputs: hourly_energy.csv, preprocessing_report.json
+- [x] T004 Produce `data/processed/hourly_energy.csv`. DONE — produced by ml/preprocess.py (103,704 rows, 16 columns)
+- [x] T005 Build EDA notebook/script and save key findings. DONE — ml/eda.py; outputs: eda_report.json, docs/EDA_FINDINGS.md
+- [x] T006 Implement statistical anomaly features. DONE — ml/anomaly_features.py; outputs: anomaly_features.csv (30 cols), anomaly_features_report.json
+- [x] T007 Train chronological Linear/Ridge Regression baseline. DONE — ml/train.py; Ridge α=100, test RMSE=0.9952, R²=0.266
+- [x] T008 Evaluate MAE/RMSE/R2. DONE — ml/evaluate.py; evaluation_report.json; per-household metrics documented
+- [x] T009 Implement controlled synthetic anomaly benchmark. DONE — 73% detection at +3σ, 95% at +4σ, FP rate 0.68%
+- [x] T010 Build FastAPI backend. DONE — backend/app/{main.py,api/routes.py,services/data_service.py,schemas/responses.py,core/config.py}; 7 endpoints tested
+- [x] T011 Build React frontend. DONE — frontend/src/ (App.jsx, 3 pages, 5 components); Vite 5+React 18+Tailwind v4+Recharts+React Router 6; clean build
+- [x] T012 Integrate frontend/backend. DONE — src/services/api.js consumes all 7 backend endpoints via VITE_API_BASE_URL
+- [x] T013 Test. DONE — 86/86 pytest; backend/tests/test_api.py; 1 dataset fact (ADR-011: dayofweek=1–7 ISO encoding)
+- [ ] T014 Deploy backend. IN PROGRESS
 - [ ] T015 Deploy frontend.
 
 ## Priority P1 — should complete

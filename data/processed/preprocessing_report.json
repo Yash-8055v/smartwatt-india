@@ -1,0 +1,327 @@
+{
+  "script": "preprocess.py",
+  "run_at_utc": "2026-10-05T19:14:16.531048+00:00",
+  "input_file": "data/raw/Data_Do_Files_For_Data_Brief_09-15-2017/Data/Table_9_3_Final.dta",
+  "output_file": "data/processed/hourly_energy.csv",
+  "input_rows": 103704,
+  "output_rows": 103704,
+  "households": 19,
+  "date_start": "2013-08-01 01:00:00",
+  "date_end": "2014-05-12 23:00:00",
+  "transformations": [
+    "timestamp converted to datetime64 and sorted chronologically per apt",
+    "energy_kwh = np.exp(lnenergy)  \u2014 no rows removed",
+    "temp_c = (hour_temp - 32) * 5/9  \u2014 original hour_temp preserved"
+  ],
+  "columns": [
+    "apt",
+    "hour",
+    "timestamp",
+    "dayofweek",
+    "post",
+    "finpost",
+    "healthpost",
+    "ga_fin_1",
+    "ga_health_1",
+    "hour_temp",
+    "tt",
+    "tt2",
+    "tt3",
+    "lnenergy",
+    "energy_kwh",
+    "temp_c"
+  ],
+  "missing_values": 0,
+  "missing_by_column": {},
+  "duplicate_rows": 0,
+  "rows_per_household": {
+    "1": 5077,
+    "2": 4298,
+    "3": 4752,
+    "4": 5217,
+    "5": 4048,
+    "6": 4464,
+    "7": 6560,
+    "8": 6624,
+    "9": 6417,
+    "10": 6572,
+    "11": 6601,
+    "12": 4526,
+    "13": 6241,
+    "14": 6187,
+    "15": 5643,
+    "16": 6191,
+    "17": 5686,
+    "18": 5586,
+    "19": 3014
+  },
+  "energy_statistics": {
+    "min_kwh": 7.812499994486185e-06,
+    "max_kwh": 14.744124999999853,
+    "mean_kwh": 0.3684086622244633,
+    "median_kwh": 0.14793750000015393,
+    "std_kwh": 0.5797687707081535,
+    "p25_kwh": 0.061343749999991815,
+    "p75_kwh": 0.3706953124999046
+  },
+  "temperature_statistics": {
+    "min_temp_c": 5.0,
+    "max_temp_c": 41.666666666666664,
+    "mean_temp_c": 22.3404218845089
+  },
+  "temporal_validation": {
+    "1": {
+      "n_observations": 5077,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 166,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        12120.0,
+        540.0,
+        660.0
+      ]
+    },
+    "2": {
+      "n_observations": 4298,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 109,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        4680.0,
+        12120.0,
+        240.0,
+        540.0
+      ]
+    },
+    "3": {
+      "n_observations": 4752,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 61,
+      "example_non_hourly_gaps_minutes": [
+        1320.0,
+        1320.0,
+        1320.0,
+        1320.0,
+        1320.0
+      ]
+    },
+    "4": {
+      "n_observations": 5217,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 22,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        12120.0,
+        540.0,
+        660.0
+      ]
+    },
+    "5": {
+      "n_observations": 4048,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 160,
+      "example_non_hourly_gaps_minutes": [
+        6480.0,
+        1860.0,
+        180.0,
+        1260.0,
+        180.0
+      ]
+    },
+    "6": {
+      "n_observations": 4464,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 434,
+      "example_non_hourly_gaps_minutes": [
+        240.0,
+        180.0,
+        300.0,
+        120.0,
+        180.0
+      ]
+    },
+    "7": {
+      "n_observations": 6560,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 24,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        1080.0,
+        1140.0
+      ]
+    },
+    "8": {
+      "n_observations": 6624,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 35,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        1080.0,
+        1140.0
+      ]
+    },
+    "9": {
+      "n_observations": 6417,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 109,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        120.0,
+        180.0
+      ]
+    },
+    "10": {
+      "n_observations": 6572,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 12,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        1080.0,
+        1140.0
+      ]
+    },
+    "11": {
+      "n_observations": 6601,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 20,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        1560.0,
+        420.0
+      ]
+    },
+    "12": {
+      "n_observations": 4526,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 127,
+      "example_non_hourly_gaps_minutes": [
+        780.0,
+        1020.0,
+        9960.0,
+        1320.0,
+        5640.0
+      ]
+    },
+    "13": {
+      "n_observations": 6241,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 72,
+      "example_non_hourly_gaps_minutes": [
+        600.0,
+        240.0,
+        540.0,
+        180.0,
+        360.0
+      ]
+    },
+    "14": {
+      "n_observations": 6187,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 31,
+      "example_non_hourly_gaps_minutes": [
+        120.0,
+        120.0,
+        1200.0,
+        780.0,
+        420.0
+      ]
+    },
+    "15": {
+      "n_observations": 5643,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 13,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        14220.0,
+        300.0,
+        1140.0
+      ]
+    },
+    "16": {
+      "n_observations": 6191,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 35,
+      "example_non_hourly_gaps_minutes": [
+        1260.0,
+        180.0,
+        180.0,
+        14220.0,
+        300.0
+      ]
+    },
+    "17": {
+      "n_observations": 5686,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 37,
+      "example_non_hourly_gaps_minutes": [
+        240.0,
+        1140.0,
+        1140.0,
+        1140.0,
+        1140.0
+      ]
+    },
+    "18": {
+      "n_observations": 5586,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 95,
+      "example_non_hourly_gaps_minutes": [
+        1320.0,
+        1320.0,
+        1140.0,
+        1140.0,
+        1140.0
+      ]
+    },
+    "19": {
+      "n_observations": 3014,
+      "median_gap_minutes": 60.0,
+      "n_non_hourly_gaps": 177,
+      "example_non_hourly_gaps_minutes": [
+        2940.0,
+        420.0,
+        1320.0,
+        1320.0,
+        1320.0
+      ]
+    }
+  },
+  "temporal_gap_issues": [
+    "apt=1: 166 non-hourly gaps",
+    "apt=2: 109 non-hourly gaps",
+    "apt=3: 61 non-hourly gaps",
+    "apt=4: 22 non-hourly gaps",
+    "apt=5: 160 non-hourly gaps",
+    "apt=6: 434 non-hourly gaps",
+    "apt=7: 24 non-hourly gaps",
+    "apt=8: 35 non-hourly gaps",
+    "apt=9: 109 non-hourly gaps",
+    "apt=10: 12 non-hourly gaps",
+    "apt=11: 20 non-hourly gaps",
+    "apt=12: 127 non-hourly gaps",
+    "apt=13: 72 non-hourly gaps",
+    "apt=14: 31 non-hourly gaps",
+    "apt=15: 13 non-hourly gaps",
+    "apt=16: 35 non-hourly gaps",
+    "apt=17: 37 non-hourly gaps",
+    "apt=18: 95 non-hourly gaps",
+    "apt=19: 177 non-hourly gaps"
+  ],
+  "temporal_gap_notes": "All non-hourly gaps are MISSING hours (no sub-hourly gaps exist). Gaps range from 2 hours to 750 hours. The largest cluster (~1,650/1,739 gaps) is 2-hour gaps, suggesting individual missing hourly readings. Multi-day and multi-week gaps also exist \u2014 likely meter outages or data collection issues. The largest gap affects apts 1-5: ~31 days missing (2013-11-21 to 2013-12-23). On average, each household is missing ~1,381 of the 6,839 expected hourly readings (~20%). No gap filling was applied. Presence of gaps must be considered during rolling-baseline and anomaly detection steps in EDA/ML tasks.",
+  "expected_hours_in_date_range": 6839,
+  "avg_missing_hours_per_household": 1381,
+  "pct_coverage_avg": 79.8
+}
