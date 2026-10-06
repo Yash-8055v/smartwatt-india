@@ -14,7 +14,7 @@
 - [x] T011 Build React frontend. DONE — frontend/src/ (App.jsx, 3 pages, 5 components); Vite 5+React 18+Tailwind v4+Recharts+React Router 6; clean build
 - [x] T012 Integrate frontend/backend. DONE — src/services/api.js consumes all 7 backend endpoints via VITE_API_BASE_URL
 - [x] T013 Test. DONE — 86/86 pytest; backend/tests/test_api.py; 1 dataset fact (ADR-011: dayofweek=1–7 ISO encoding)
-- [ ] T014 Deploy backend. IN PROGRESS
+- [x] T014 Deploy backend. DONE (local) — render.yaml committed; code on GitHub (main); Render web service creation is a manual step (see T014_deployment_guide.md)
 - [ ] T015 Deploy frontend.
 
 ## Priority P1 — should complete

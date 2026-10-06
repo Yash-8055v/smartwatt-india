@@ -1,0 +1,2997 @@
+{
+  "Table_9_2_Final": {
+    "file": "Table_9_2_Final.dta",
+    "size_mb": 7.04,
+    "nrows": 199379,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 13595,
+        "sample": [
+          "2013-08-01 00:30:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:30:00",
+          "2013-08-01 02:00:00",
+          "2013-08-01 02:30:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 88539,
+        "sample": [
+          -2.0416641773443835,
+          -2.0620929033470823,
+          -2.042145756934814,
+          -2.0508540848292527,
+          -2.0498827394376558
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_9_3_Final": {
+    "file": "Table_9_3_Final.dta",
+    "size_mb": 3.66,
+    "nrows": 103704,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 6805,
+        "sample": [
+          "2013-08-01 01:00:00",
+          "2013-08-01 02:00:00",
+          "2013-08-01 03:00:00",
+          "2013-08-01 04:00:00",
+          "2013-08-01 05:00:00"
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          80,
+          80,
+          80
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 64617,
+        "sample": [
+          -1.3589224143242913,
+          -1.3572211136345298,
+          -1.2430601930335918,
+          -1.2752003136148573,
+          -1.3221465412958489
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_9_4_Final": {
+    "file": "Table_9_4_Final.dta",
+    "size_mb": 0.2,
+    "nrows": 4802,
+    "ncols": 13,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 284,
+        "sample": [
+          "2013-08-02 00:00:00",
+          "2013-08-03 00:00:00",
+          "2013-08-04 00:00:00",
+          "2013-08-05 00:00:00",
+          "2013-08-06 00:00:00"
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          6,
+          7,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mean_daily_temp",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 237,
+        "sample": [
+          86.83333333333333,
+          87.375,
+          88.25,
+          83.04166666666667,
+          79.58333333333333
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 284,
+        "sample": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 284,
+        "sample": [
+          4,
+          9,
+          16,
+          25,
+          36
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 284,
+        "sample": [
+          8,
+          27,
+          64,
+          125,
+          216
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 4788,
+        "sample": [
+          2.8014836208936784,
+          2.5014769345059564,
+          2.6571691024520736,
+          2.2636038511652283,
+          2.207064891136627
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "mean_daily_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A1_Final": {
+    "file": "Table_A1_Final.dta",
+    "size_mb": 0.28,
+    "nrows": 1820,
+    "ncols": 12,
+    "columns": [
+      {
+        "column": "id1",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 1820,
+        "sample": [
+          "2774067876",
+          "2774049107",
+          "2774036508",
+          "2774020087",
+          "2773998017"
+        ]
+      },
+      {
+        "column": "unplug_appliances",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          "Often",
+          "Always",
+          "Always",
+          "Often",
+          "Always"
+        ]
+      },
+      {
+        "column": "buy_energy_efficient",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          "Often",
+          "Always",
+          "Always",
+          "Always",
+          "Always"
+        ]
+      },
+      {
+        "column": "turnoff_ac",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          "Always",
+          "Always",
+          "Always",
+          "Always",
+          "Always"
+        ]
+      },
+      {
+        "column": "switchoff_lights",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          "Always",
+          "Always",
+          "Always",
+          "Always",
+          "Often"
+        ]
+      },
+      {
+        "column": "change_appliance_setting",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          "Always",
+          "Rarely",
+          "Always",
+          "Always",
+          "Always"
+        ]
+      },
+      {
+        "column": "mot_unplug_appliances",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 51,
+        "sample": [
+          "16,",
+          "12,",
+          "7,",
+          "7,",
+          "7,12,"
+        ]
+      },
+      {
+        "column": "mot_buy_energy_efficient",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 44,
+        "sample": [
+          "7,",
+          "12,",
+          "14,",
+          "7,",
+          "7,12,"
+        ]
+      },
+      {
+        "column": "mot_turnoff_ac",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 40,
+        "sample": [
+          "7,",
+          "12,",
+          "7,",
+          "7,12,",
+          "7,12,"
+        ]
+      },
+      {
+        "column": "mot_switchoff_lights",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 47,
+        "sample": [
+          "7,",
+          "12,",
+          "14,",
+          "7,12,",
+          "7,12,"
+        ]
+      },
+      {
+        "column": "mot_change_appliance_setting",
+        "dtype": "str",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 45,
+        "sample": [
+          "16,",
+          "12,",
+          "14,",
+          "7,10,",
+          "7,12,"
+        ]
+      },
+      {
+        "column": "subsample",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "energy_cols": [
+      "buy_energy_efficient",
+      "mot_buy_energy_efficient"
+    ],
+    "id_candidates": [
+      "id1"
+    ],
+    "timestamp_candidates": [],
+    "treatment_cols": [
+      "subsample"
+    ],
+    "temp_cols": [],
+    "n_duplicates": 0
+  },
+  "Table_A2_Final": {
+    "file": "Table_A2_Final.dta",
+    "size_mb": 15.77,
+    "nrows": 375805,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "pctmissing",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 4,
+        "sample": [
+          25.0,
+          25.0,
+          25.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "week",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 41,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 110122,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A3_1_Final": {
+    "file": "Table_A3_1_Final.dta",
+    "size_mb": 12.55,
+    "nrows": 375805,
+    "ncols": 12,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 110122,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A3_2_Final": {
+    "file": "Table_A3_2_Final.dta",
+    "size_mb": 11.95,
+    "nrows": 357893,
+    "ncols": 12,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-09-01 20:00:00",
+          "2013-09-02 17:45:00",
+          "2013-09-05 23:45:00",
+          "2013-09-06 00:15:00",
+          "2013-09-06 01:00:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          20,
+          17,
+          23,
+          0,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          1,
+          2,
+          5,
+          6,
+          6
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          88,
+          91,
+          84,
+          83,
+          82
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32,
+          33,
+          36,
+          37,
+          37
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1024,
+          1089,
+          1296,
+          1369,
+          1369
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32768,
+          35937,
+          46656,
+          50653,
+          50653
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 108994,
+        "sample": [
+          -6.208765822795562,
+          -11.06663836259283,
+          -4.903323558307359,
+          -6.481670883671683,
+          -4.307673156944801
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A3_3_Final": {
+    "file": "Table_A3_3_Final.dta",
+    "size_mb": 12.14,
+    "nrows": 363530,
+    "ncols": 12,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 104715,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A4_1_Final": {
+    "file": "Table_A4_1_Final.dta",
+    "size_mb": 13.26,
+    "nrows": 375805,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_fin",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_health",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 6,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 110122,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "mc_fin",
+      "mc_health"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A4_2_Final": {
+    "file": "Table_A4_2_Final.dta",
+    "size_mb": 12.63,
+    "nrows": 357893,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-09-01 20:00:00",
+          "2013-09-02 17:45:00",
+          "2013-09-05 23:45:00",
+          "2013-09-06 00:15:00",
+          "2013-09-06 01:00:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          20,
+          17,
+          23,
+          0,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          1,
+          2,
+          5,
+          6,
+          6
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_fin",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_health",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 6,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          88,
+          91,
+          84,
+          83,
+          82
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32,
+          33,
+          36,
+          37,
+          37
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1024,
+          1089,
+          1296,
+          1369,
+          1369
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32768,
+          35937,
+          46656,
+          50653,
+          50653
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 108994,
+        "sample": [
+          -6.208765822795562,
+          -11.06663836259283,
+          -4.903323558307359,
+          -6.481670883671683,
+          -4.307673156944801
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "mc_fin",
+      "mc_health"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A4_3_Final": {
+    "file": "Table_A4_3_Final.dta",
+    "size_mb": 12.83,
+    "nrows": 363530,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_fin",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "mc_health",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 104715,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "mc_fin",
+      "mc_health"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A5_1_Final": {
+    "file": "Table_A5_1_Final.dta",
+    "size_mb": 13.26,
+    "nrows": 375805,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 19,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 110122,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A5_2_Final": {
+    "file": "Table_A5_2_Final.dta",
+    "size_mb": 12.63,
+    "nrows": 357893,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-09-01 20:00:00",
+          "2013-09-02 17:45:00",
+          "2013-09-05 23:45:00",
+          "2013-09-06 00:15:00",
+          "2013-09-06 01:00:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          20,
+          17,
+          23,
+          0,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          1,
+          2,
+          5,
+          6,
+          6
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          88,
+          91,
+          84,
+          83,
+          82
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32,
+          33,
+          36,
+          37,
+          37
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1024,
+          1089,
+          1296,
+          1369,
+          1369
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          32768,
+          35937,
+          46656,
+          50653,
+          50653
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 108994,
+        "sample": [
+          -6.208765822795562,
+          -11.06663836259283,
+          -4.903323558307359,
+          -6.481670883671683,
+          -4.307673156944801
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  },
+  "Table_A5_3_Final": {
+    "file": "Table_A5_3_Final.dta",
+    "size_mb": 12.83,
+    "nrows": 363530,
+    "ncols": 14,
+    "columns": [
+      {
+        "column": "apt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 18,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "timestamp",
+        "dtype": "datetime64[ms]",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 27161,
+        "sample": [
+          "2013-08-01 00:15:00",
+          "2013-08-01 00:30:00",
+          "2013-08-01 00:45:00",
+          "2013-08-01 01:00:00",
+          "2013-08-01 01:15:00"
+        ]
+      },
+      {
+        "column": "hour",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 24,
+        "sample": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "dayofweek",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 7,
+        "sample": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "column": "post",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "finpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "healthpost",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 2,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_fin_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 5,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "ga_health_1",
+        "dtype": "int8",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 4,
+        "sample": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "column": "hour_temp",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 67,
+        "sample": [
+          79,
+          79,
+          79,
+          79,
+          79
+        ]
+      },
+      {
+        "column": "tt",
+        "dtype": "int16",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt2",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "tt3",
+        "dtype": "int32",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 285,
+        "sample": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "column": "lnenergy",
+        "dtype": "float64",
+        "n_missing": 0,
+        "pct_missing": 0.0,
+        "n_unique": 104715,
+        "sample": [
+          -2.5615177521593693,
+          -2.526510199642723,
+          -2.998235403768973,
+          -2.995732273557174,
+          -2.5615177521608423
+        ]
+      }
+    ],
+    "energy_cols": [
+      "lnenergy"
+    ],
+    "id_candidates": [
+      "apt"
+    ],
+    "timestamp_candidates": [
+      "timestamp"
+    ],
+    "treatment_cols": [
+      "post",
+      "finpost",
+      "healthpost",
+      "ga_fin_1",
+      "ga_health_1"
+    ],
+    "temp_cols": [
+      "hour_temp"
+    ],
+    "n_duplicates": 0
+  }
+}

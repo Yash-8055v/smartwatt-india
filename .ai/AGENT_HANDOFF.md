@@ -20,53 +20,48 @@ If blocked by missing data, dependency, deployment credential or ambiguous requi
 
 ---
 
-## Current state (updated 2026-10-06 — T013 tests complete)
+## Current state (updated 2026-10-06 — T014 complete)
 
-**Milestone:** M8 — 86/86 pytest tests pass; deployment (T014/T015) next.
+**Milestone:** M9 — All code on GitHub; render.yaml ready; T015 (frontend deploy) next.
 
-**Test suite:** `backend/tests/test_api.py`
+**GitHub:** `git@github.com:Yash-8055v/smartwatt-india.git` — branch `main` up-to-date (2 commits ahead of origin)
+
+**Render deployment config:** `render.yaml` in repo root — Blueprint defines both backend + frontend services.
+
+**Backend local smoke test (7/7 pass):**
 ```
-86 tests / 86 passed / 0 failed
-Run: PYTHONPATH=backend .venv/bin/python -m pytest backend/tests/test_api.py -v
+GET /api/v1/health             200  {"status":"ok","version":"v0.1.0"}
+GET /api/v1/metadata           200  19 households, 103,704 obs, 6,549 anomalies, Ridge R²=0.266
+GET /api/v1/households         200  19 households
+GET /api/v1/summary            200  n_anomalies=6549, rate=6.32%
+GET /api/v1/households/7/timeseries?limit=5  200  n_points=5
+GET /api/v1/households/7/anomalies           200  n_anomalies=455
+GET /api/v1/households/99      404  correct error
 ```
 
-**Test classes:**
-| Class | Tests | Covers |
-|---|---|---|
-| TestHealth | 4 | /health status, schema, values |
-| TestMetadata | 10 | /metadata schema, counts, ranges, model |
-| TestListHouseholds | 9 | /households count=19, IDs 1–19, total obs |
-| TestGetHousehold | 8 | /households/{id} valid/invalid/all 19 |
-| TestTimeseries | 17 | limit, date filters, schema, impossible range |
-| TestAnomalies | 15 | min_methods monotone, param validation |
-| TestSummary | 11 | /summary totals, method keys, rate math |
-| TestIntegration | 8 | cross-endpoint consistency, all apts |
+**Remaining manual step for T014 (backend live on Render):**
+1. Go to https://dashboard.render.com
+2. New → Blueprint → connect `Yash-8055v/smartwatt-india`
+3. Render auto-detects render.yaml → Apply
+4. Backend URL will be: `https://smartwatt-india-backend.onrender.com`
 
-**Dataset fact discovered (ADR-011):**
-- `dayofweek` column is ISO encoded (1=Mon … 7=Sun) from raw Stata file — not 0-indexed
-- No backend code change needed; documented in DECISIONS.md
+**Next task: T015 — Deploy frontend**
+- Render Static Site OR Vercel
+- Root dir: `frontend`
+- Build: `npm ci && npm run build`
+- Publish dir: `dist`
+- Env var: `VITE_API_BASE_URL=https://smartwatt-india-backend.onrender.com`
+- render.yaml already includes the frontend service (Option A: Blueprint deploys both together)
 
-**Dev commands (full stack):**
+**Dev commands:**
 ```bash
-# Backend (Terminal 1)
+# Backend
 cd backend && PYTHONPATH=. ../.venv/bin/uvicorn app.main:app --reload --port 8000
 
-# Frontend (Terminal 2)
+# Frontend
 cd frontend && npm run dev    # → http://localhost:5173
 
 # Tests
 PYTHONPATH=backend .venv/bin/python -m pytest backend/tests/test_api.py -v
 ```
-
-**Next task: T014 — Deploy backend to Render**
-- Render web service (Python, free tier)
-- Start command: `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- Set env vars: FRONTEND_ORIGIN, MODEL_VERSION, DATA_VERSION
-- Data files must be committed to Git (data/processed/ and ml/models/ currently gitignored — check .gitignore)
-- IMPORTANT: Confirm .gitignore allows data/processed/*.csv and ml/models/*.joblib for deployment
-
-**Then T015 — Deploy frontend to Render Static Site or Vercel**
-- Build: `npm run build` → dist/
-- Env: VITE_API_BASE_URL=https://<backend-render-url>
-- Frontend .env.example already in place
 
