@@ -24,8 +24,8 @@
 - [x] T019 Improved anomaly explanation. DONE — Rewrote AnomalyExplorer with expandable plain-language tooltips for methods.
 - [x] T020 Demo seed/default household. DONE — Changed default apt selection to 1 in Dashboard, AnomalyExplorer, and Predict.
 - [x] T021 CSV export. DONE — Added 'Export CSV' button to AnomalyTable (frontend-generated).
-- [ ] T022 Advanced filters. IN PROGRESS
-- [ ] T023 Additional statistical tests.
+- [x] T022 Advanced filters. DONE — Added 'Required Method', 'Date From', 'Date To', and 'Clear Filters' controls to AnomalyTable.
+- [ ] T023 Additional statistical tests. IN PROGRESS
 
 ## Agent execution protocol
 When an agent takes a task:

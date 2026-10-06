@@ -18,7 +18,7 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
-## Current state (updated 2026-10-06 — T021 complete)
+## Current state (updated 2026-10-06 — T022 complete)
 
 **Milestone:** M14 — P2 tasks started.
 
@@ -40,11 +40,13 @@ If blocked by missing data, dependency, deployment credential or ambiguous requi
 
 **Navbar:** Dashboard | Anomaly Explorer | Compare | **Predict** | Methodology
 
-**Next task: T022 — Advanced filters**
-- Add useful filters based ONLY on existing API data.
-- Recommended filters: Household (already exists), Detection method, Date range (if API supports it).
-- Requirements: clear/reset filters button, show filtered count, preserve table.
-- Do NOT add a backend endpoint or change the API contract.
+**Next task: T023 — Additional statistical tests**
+- Add useful statistical analysis ONLY if it improves the project's statistical credibility.
+- Do NOT add random statistical tests merely to increase feature count.
+- Potential additions: distribution/normality diagnostic, additional residual diagnostics.
+- Update documentation with: test/method, purpose, result, interpretation, limitation.
+- Validate: scripts execute, outputs reproducible, existing ML pipeline works, tests pass.
+- After T023, perform FINAL PROJECT CHECK as requested by the user.
 
 **Dev commands:**
 ```bash

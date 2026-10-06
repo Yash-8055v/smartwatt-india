@@ -42,18 +42,32 @@ function exportToCsv(data, filename) {
  */
 export default function AnomalyTable({ anomalies = [], showHousehold = false }) {
   const [minMethods, setMinMethods] = useState(1)
+  const [reqMethod, setReqMethod] = useState('all')
+  const [dateFrom, setDateFrom] = useState('')
+  const [dateTo, setDateTo] = useState('')
   const [sortKey, setSortKey] = useState('timestamp')
   const [sortDir, setSortDir] = useState('desc')
 
   const filtered = useMemo(() => {
-    const f = anomalies.filter((a) => a.anomaly_method_count >= minMethods)
+    let f = anomalies.filter((a) => a.anomaly_method_count >= minMethods)
+    if (reqMethod !== 'all') {
+      f = f.filter(a => methodLabels(a).includes(reqMethod))
+    }
+    if (dateFrom) {
+      const df = new Date(dateFrom).getTime()
+      f = f.filter(a => new Date(a.timestamp).getTime() >= df)
+    }
+    if (dateTo) {
+      const dt = new Date(dateTo).getTime() + 86400000 // include end date
+      f = f.filter(a => new Date(a.timestamp).getTime() < dt)
+    }
     return [...f].sort((a, b) => {
       let av = a[sortKey], bv = b[sortKey]
       if (typeof av === 'string') av = av.localeCompare(bv)
       else av = (av ?? 0) - (bv ?? 0)
       return sortDir === 'asc' ? av : -av
     })
-  }, [anomalies, minMethods, sortKey, sortDir])
+  }, [anomalies, minMethods, reqMethod, dateFrom, dateTo, sortKey, sortDir])
 
   function toggleSort(key) {
     if (sortKey === key) setSortDir((d) => d === 'asc' ? 'desc' : 'asc')
@@ -69,41 +83,93 @@ export default function AnomalyTable({ anomalies = [], showHousehold = false }) 
     </th>
   )
 
-  if (!anomalies.length) return <Empty text="No anomalies detected for this selection." />
+  if (!anomalies.length) return <Empty text="No anomalies available." />
 
   return (
     <div>
       {/* Filter bar */}
-      <div className="flex flex-wrap gap-3 mb-4 items-center">
-        <span className="text-xs text-gray-400">Min. methods flagged:</span>
-        {[1, 2, 3, 4].map((n) => (
+      <div className="flex flex-col gap-3 mb-4">
+        {/* Advanced Filters */}
+        <div className="flex flex-wrap gap-3 items-end">
+          <div>
+            <label className="block text-xs text-gray-400 mb-1">Required Method</label>
+            <select
+              value={reqMethod}
+              onChange={(e) => setReqMethod(e.target.value)}
+              className="bg-[#22263a] border border-[#2e3347] rounded px-2 py-1.5 text-xs text-gray-200"
+            >
+              <option value="all">Any Method</option>
+              <option value="Z-score">Z-score</option>
+              <option value="IQR">IQR</option>
+              <option value="Rolling">Rolling</option>
+              <option value="Residual">Residual</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs text-gray-400 mb-1">Date From</label>
+            <input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+              className="bg-[#22263a] border border-[#2e3347] rounded px-2 py-1 text-xs text-gray-200"
+            />
+          </div>
+          <div>
+            <label className="block text-xs text-gray-400 mb-1">Date To</label>
+            <input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+              className="bg-[#22263a] border border-[#2e3347] rounded px-2 py-1 text-xs text-gray-200"
+            />
+          </div>
+          <div className="ml-auto">
+            <button
+              onClick={() => { setMinMethods(1); setReqMethod('all'); setDateFrom(''); setDateTo(''); }}
+              className="px-3 py-1.5 rounded border border-[#2e3347] text-gray-400 hover:text-gray-200 hover:bg-[#22263a] text-xs transition-colors"
+            >
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        {/* Severity & Export */}
+        <div className="flex flex-wrap gap-3 items-center">
+          <span className="text-xs text-gray-400">Min. methods flagged:</span>
+          {[1, 2, 3, 4].map((n) => (
+            <button
+              key={n}
+              onClick={() => setMinMethods(n)}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                minMethods === n
+                  ? 'bg-blue-700 text-white'
+                  : 'bg-[#22263a] text-gray-400 hover:bg-[#2e3347]'
+              }`}
+            >
+              ≥{n}
+            </button>
+          ))}
           <button
-            key={n}
-            onClick={() => setMinMethods(n)}
-            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-              minMethods === n
-                ? 'bg-blue-700 text-white'
-                : 'bg-[#22263a] text-gray-400 hover:bg-[#2e3347]'
-            }`}
+            onClick={() => {
+              const apt = showHousehold ? 'all' : (filtered[0]?.apt_id ?? 'export')
+              exportToCsv(filtered, `smartwatt-anomalies-apt-${apt}.csv`)
+            }}
+            className="ml-auto px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center gap-2"
           >
-            ≥{n}
+            <span>Export CSV</span>
           </button>
-        ))}
-        <button
-          onClick={() => {
-            const apt = showHousehold ? 'all' : (filtered[0]?.apt_id ?? 'export')
-            exportToCsv(filtered, `smartwatt-anomalies-apt-${apt}.csv`)
-          }}
-          className="ml-auto px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center gap-2"
-        >
-          <span>Export CSV</span>
-        </button>
-        <span className="text-xs text-gray-500">{filtered.length.toLocaleString()} rows</span>
+          <span className="text-xs text-gray-500 min-w-[70px] text-right">
+            {filtered.length.toLocaleString()} rows
+          </span>
+        </div>
       </div>
 
-      <div className="overflow-x-auto rounded-lg border border-[#2e3347]">
-        <table className="w-full text-sm">
-          <thead className="bg-[#22263a]">
+      {filtered.length === 0 ? (
+        <Empty text="No anomalies match the current filters." />
+      ) : (
+        <div className="overflow-x-auto rounded-lg border border-[#2e3347]">
+          <table className="w-full text-sm">
+            <thead className="bg-[#22263a]">
             <tr>
               {showHousehold && <Th k="apt_id">Apt</Th>}
               <Th k="timestamp">Timestamp</Th>
@@ -149,8 +215,9 @@ export default function AnomalyTable({ anomalies = [], showHousehold = false }) 
               )
             })}
           </tbody>
-        </table>
-      </div>
+          </table>
+        </div>
+      )}
 
       <p className="mt-3 text-xs text-gray-500">
         ⚠ "Unusual consumption" means the reading deviates significantly from this household's own historical pattern. It does not imply theft, appliance failure, or any specific cause.
