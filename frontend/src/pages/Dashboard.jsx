@@ -48,7 +48,7 @@ export default function Dashboard() {
       </div>
 
       {/* Global KPIs */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <KpiCard
           label="Households"
           value={meta?.n_households ?? '—'}
@@ -76,11 +76,11 @@ export default function Dashboard() {
 
       {/* Household selector + date filters */}
       <Card className="mb-6">
-        <div className="flex flex-wrap gap-4 items-end">
-          <div>
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-start sm:items-end">
+          <div className="w-full sm:w-auto">
             <label className="block text-xs text-gray-400 mb-1">Household</label>
             {hhLoading ? <div className="text-gray-500 text-sm">Loading…</div> : (
-              <Select value={aptId} onChange={(e) => setAptId(Number(e.target.value))}>
+              <Select value={aptId} onChange={(e) => setAptId(Number(e.target.value))} className="w-full sm:w-auto">
                 {households?.households?.map((h) => (
                   <option key={h.apt_id} value={h.apt_id}>
                     Apt {h.apt_id} — {h.n_observations.toLocaleString()} obs, {h.n_anomalies} anomalies
@@ -89,20 +89,20 @@ export default function Dashboard() {
               </Select>
             )}
           </div>
-          <div>
+          <div className="w-full sm:w-auto">
             <label className="block text-xs text-gray-400 mb-1">From date</label>
             <input
               type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)}
               min="2013-08-01" max="2014-05-12"
-              className="bg-[#22263a] border border-[#2e3347] rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-blue-500"
+              className="w-full sm:w-auto bg-[#22263a] border border-[#2e3347] rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div>
+          <div className="w-full sm:w-auto">
             <label className="block text-xs text-gray-400 mb-1">To date</label>
             <input
               type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
               min="2013-08-01" max="2014-05-12"
-              className="bg-[#22263a] border border-[#2e3347] rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-blue-500"
+              className="w-full sm:w-auto bg-[#22263a] border border-[#2e3347] rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-blue-500"
             />
           </div>
           {(dateFrom || dateTo) && (
@@ -153,7 +153,7 @@ export default function Dashboard() {
       {summary && !summLoading && (
         <Card className="mt-6">
           <SectionTitle>Anomaly Method Breakdown (all households)</SectionTitle>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <MethodStat label="IQR Extreme" value={summary.by_method.iqr_extreme} color="#a78bfa" />
             <MethodStat label="Rolling Spike" value={summary.by_method.rolling_spike} color="#34d399" />
             <MethodStat label="Residual Z>3" value={summary.by_method.residual_z_gt3} color="#fb923c" />

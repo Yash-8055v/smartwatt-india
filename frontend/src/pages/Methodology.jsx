@@ -141,7 +141,7 @@ export default function Methodology() {
       <Card className="mb-6">
         <SectionTitle>Ridge Model Performance</SectionTitle>
         {loading ? <Spinner text="Loading metrics…" /> : error ? <ErrorMsg message={error} /> : (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <KpiCard label="Test R²" value={fmtNum(meta?.model_test_r2, 3)} sub="Chronological 20% holdout" />
             <KpiCard label="Test RMSE" value={fmtNum(meta?.model_test_rmse, 4)} sub="log(kWh) units" />
             <KpiCard label="Test MAE" value={fmtNum(meta?.model_test_mae, 4)} sub="log(kWh) units" />

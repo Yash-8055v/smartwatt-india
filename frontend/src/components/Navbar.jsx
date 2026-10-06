@@ -19,7 +19,7 @@ export default function Navbar() {
         </div>
 
         {/* Nav links */}
-        <ul className="flex items-center gap-1">
+        <ul className="flex items-center gap-1 overflow-x-auto whitespace-nowrap hide-scrollbar pb-1 sm:pb-0">
           {links.map(({ to, label }) => (
             <li key={to}>
               <NavLink

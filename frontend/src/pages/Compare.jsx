@@ -235,7 +235,7 @@ export default function Compare() {
       <Card className="mb-8">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <SectionTitle>Select Households</SectionTitle>
-          <div className="flex items-center gap-3 text-xs">
+          <div className="flex flex-wrap items-center gap-3 text-xs">
             <span className="text-gray-500">
               {selectedIds.size} selected{atMax ? ' (max 5)' : ''}
             </span>

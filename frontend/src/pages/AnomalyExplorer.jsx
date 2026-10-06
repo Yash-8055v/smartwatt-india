@@ -119,10 +119,10 @@ export default function AnomalyExplorer() {
 
       {/* Controls */}
       <Card className="mb-6">
-        <div className="flex flex-wrap gap-4 items-end">
-          <div>
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-start sm:items-center">
+          <div className="w-full sm:w-auto">
             <label className="block text-xs text-gray-400 mb-1">Household</label>
-            <Select value={aptId} onChange={(e) => setAptId(e.target.value)}>
+            <Select value={aptId} onChange={(e) => setAptId(e.target.value)} className="w-full sm:w-auto">
               <option value="all">All households</option>
               {households?.households?.map((h) => (
                 <option key={h.apt_id} value={h.apt_id}>
