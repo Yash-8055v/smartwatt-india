@@ -20,9 +20,9 @@
 ## Priority P1 — should complete
 - [x] T016 Random Forest comparison. DONE — RF struggled with temporal extrapolation (Test R²=-0.2259); Ridge baseline retained.
 - [x] T017 Household comparison view. DONE — frontend/src/pages/Compare.jsx; /compare route; multi-select (2–5); metrics table + 3 bar charts; 843-module build passes.
-- [ ] T018 Prediction scenario form. IN PROGRESS
-- [ ] T019 Improved anomaly explanation.
-- [ ] T020 Demo seed/default household.
+- [x] T018 Prediction scenario form. DONE — POST /api/v1/predict + Predict.jsx; 107/107 pytest; ADR-013.
+- [x] T019 Improved anomaly explanation. DONE — Rewrote AnomalyExplorer with expandable plain-language tooltips for methods.
+- [ ] T020 Demo seed/default household. IN PROGRESS
 
 ## Priority P2 — only if time remains
 - [ ] T021 CSV export.
