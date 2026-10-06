@@ -25,7 +25,7 @@
 - [x] T020 Demo seed/default household. DONE — Changed default apt selection to 1 in Dashboard, AnomalyExplorer, and Predict.
 - [x] T021 CSV export. DONE — Added 'Export CSV' button to AnomalyTable (frontend-generated).
 - [x] T022 Advanced filters. DONE — Added 'Required Method', 'Date From', 'Date To', and 'Clear Filters' controls to AnomalyTable.
-- [ ] T023 Additional statistical tests. IN PROGRESS
+- [x] T023 Additional statistical tests. DONE — Added Durbin-Watson (autocorrelation) and Spearman (heteroscedasticity) tests to ml/additional_stats.py.
 
 ## Agent execution protocol
 When an agent takes a task:

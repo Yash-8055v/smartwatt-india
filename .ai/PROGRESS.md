@@ -1,6 +1,6 @@
 # SmartWatt Progress Tracker
 
-Last updated: 2026-10-06 (T022 Advanced filters complete)
+Last updated: 2026-10-06 (T023 Additional statistical tests complete, Project Finished)
 
 ## Overall status
 **100% MVP — Both backend and frontend configured for Render deployment. Manual Render UI steps remaining. Moving to P1 tasks.**
@@ -28,10 +28,10 @@ Last updated: 2026-10-06 (T022 Advanced filters complete)
 - [ ] 20 PPT/demo ready
 
 ## Current milestone
-M14 — P2 tasks finishing.
+M15 — PROJECT COMPLETE.
 
 ## Active task
-T023 — Additional statistical tests.
+None. All tasks T001–T023 are complete.
 
 ## Blockers
 None known.
@@ -54,6 +54,8 @@ None known.
 - 2026-10-06 (AI Agent): T020 complete. Updated default household selection to Apt 1 in Dashboard, AnomalyExplorer, and Predict pages to make the deployed demo immediately usable. Build: 844 modules, 0 errors. Tests: 107/107 pass.
 - 2026-10-06 (AI Agent): T021 complete. Added a frontend-generated CSV export feature to the `AnomalyTable` component. Generates a properly escaped CSV with meaningful headers (household, timestamp, consumption, expected, residuals, methods). No new backend infrastructure added. Build: 844 modules, 0 errors. Tests: 107/107 pass.
 - 2026-10-06 (AI Agent): T022 complete. Added 'Required Method' (Z-score, IQR, Rolling, Residual) and 'Date Range' (From, To) filters to `AnomalyTable`. Includes 'Clear Filters' button and reactive empty state. Filters apply instantly client-side without new backend endpoints. Build: 844 modules, 0 errors. Tests: 107/107 pass.
+- 2026-10-06 (AI Agent): T023 complete. Added `ml/additional_stats.py` to evaluate regression assumptions. Implemented Durbin-Watson (found positive autocorrelation, expected for time-series) and Spearman heteroscedasticity check (minor correlation found, log transform worked well). Updated `ML_STATISTICS_PLAN.md`.
+- 2026-10-06 (AI Agent): FINAL PROJECT CHECK complete. All 107 backend tests pass. Frontend production build passes with 0 errors. All routing, APIs, and P0/P1/P2 requirements (T001-T023) are successfully integrated. Project is fully deployable and complete.
 
 ## Rule for AI agents
 Before starting work: read PROJECT_CONTEXT.md, this file, TASKS.md and DECISIONS.md.

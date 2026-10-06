@@ -1,0 +1,42 @@
+{
+  "run_at_utc": "2026-10-06T13:15:18.302821+00:00",
+  "n_test_observations": 20751,
+  "tests": {
+    "durbin_watson": {
+      "test": "Durbin-Watson",
+      "purpose": "Detects first-order autocorrelation in residuals.",
+      "per_household_statistic": {
+        "1": 0.833235257064654,
+        "2": 0.22562953743375405,
+        "3": 0.49545655869678046,
+        "4": 0.4475042879283859,
+        "5": 0.30880232078816217,
+        "6": 0.9919951897098196,
+        "7": 0.8323911857804404,
+        "8": 0.1754547546153435,
+        "9": 0.4884649365609372,
+        "10": 0.21698063053011457,
+        "11": 0.5619452478139427,
+        "12": 0.5766404272303381,
+        "13": 0.5850707854885862,
+        "14": 0.40772902336931094,
+        "15": 0.6198800705679661,
+        "16": 0.498981492145848,
+        "17": 0.4608045482278012,
+        "18": 0.36892950261219604,
+        "19": 0.30142086861476214
+      },
+      "mean_statistic": 0.4945956118515339,
+      "interpretation": "Mean DW statistic is 0.49. Values significantly below 2.0 indicate positive autocorrelation, meaning periods of high/low unexplained consumption tend to cluster together temporally.",
+      "limitation": "Only detects first-order (lag-1) autocorrelation."
+    },
+    "heteroscedasticity": {
+      "test": "Spearman Rank Correlation (Predicted vs Absolute Residual)",
+      "purpose": "Checks if prediction errors scale with the predicted value (heteroscedasticity).",
+      "spearman_correlation": 0.0500276749665109,
+      "p_value": 5.567675338102005e-13,
+      "interpretation": "Correlation is 0.050 (p=5.57e-13). A positive value indicates that as expected energy use increases, the magnitude of the model's error also tends to increase. The log transformation partially mitigated this, but some heteroscedasticity remains.",
+      "limitation": "Does not formalize a functional form for the variance."
+    }
+  }
+}

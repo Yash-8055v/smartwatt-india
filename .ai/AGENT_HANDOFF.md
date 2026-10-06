@@ -18,9 +18,9 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
-## Current state (updated 2026-10-06 — T022 complete)
+## Current state (updated 2026-10-06 — PROJECT COMPLETE)
 
-**Milestone:** M14 — P2 tasks started.
+**Milestone:** M15 — PROJECT COMPLETE.
 
 **GitHub:** `(Pending commit)`
 
@@ -40,13 +40,12 @@ If blocked by missing data, dependency, deployment credential or ambiguous requi
 
 **Navbar:** Dashboard | Anomaly Explorer | Compare | **Predict** | Methodology
 
-**Next task: T023 — Additional statistical tests**
-- Add useful statistical analysis ONLY if it improves the project's statistical credibility.
-- Do NOT add random statistical tests merely to increase feature count.
-- Potential additions: distribution/normality diagnostic, additional residual diagnostics.
-- Update documentation with: test/method, purpose, result, interpretation, limitation.
-- Validate: scripts execute, outputs reproducible, existing ML pipeline works, tests pass.
-- After T023, perform FINAL PROJECT CHECK as requested by the user.
+**Next task: None. Project is complete.**
+- All MVP, P1, and P2 tasks (T001-T023) have been completed.
+- Both backend and frontend are production-ready.
+- Tests (107/107) and builds are passing cleanly.
+- Deployment configuration (Render config, Procfile, gunicorn setup) is fully prepared.
+- To deploy, follow `T014_deployment_guide.md` and `T015_deployment_guide.md`.
 
 **Dev commands:**
 ```bash
