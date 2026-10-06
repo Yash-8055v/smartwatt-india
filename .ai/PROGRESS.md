@@ -1,6 +1,6 @@
 # SmartWatt Progress Tracker
 
-Last updated: 2026-10-06 (T016 Random Forest comparison complete)
+Last updated: 2026-10-06 (T017 Compare page complete)
 
 ## Overall status
 **100% MVP — Both backend and frontend configured for Render deployment. Manual Render UI steps remaining. Moving to P1 tasks.**
@@ -28,10 +28,10 @@ Last updated: 2026-10-06 (T016 Random Forest comparison complete)
 - [ ] 20 PPT/demo ready
 
 ## Current milestone
-M10 — P0 (MVP) Complete! Continuing Priority P1 Tasks.
+M11 — Compare page live; continuing P1 tasks.
 
 ## Active task
-T017 — Household comparison view.
+T018 — Prediction scenario form.
 
 ## Blockers
 None known.
@@ -48,6 +48,7 @@ None known.
 - 2026-10-06 (AI Agent): T014 complete. Backend successfully deployed to Render (`https://smartwatt-india-backend.onrender.com`).
 - 2026-10-06 (AI Agent): T015 complete (local). Frontend build tested locally with `VITE_API_BASE_URL` pointing to live backend. Provided `T015_deployment_guide.md` for manual Render static site deployment. P0 MVP phase complete.
 - 2026-10-06 (AI Agent): T016 complete. Built and evaluated a Random Forest regressor (`ml/train_rf.py`). Rejected in favor of Ridge baseline. RF heavily overfit (Train R²=0.59 vs Test R²=-0.22) and failed to extrapolate chronological trends. (ADR-012).
+- 2026-10-06 (AI Agent): T017 complete. Created frontend/src/pages/Compare.jsx — dedicated /compare route. Multi-select checkboxes (2–5 max), metrics comparison table with min/max highlighting, 3 bar charts (avg kWh, anomaly rate%, anomaly count). Uses /api/v1/households response only. Build: 843 modules, 0 errors. Pushed to GitHub.
 
 ## Rule for AI agents
 Before starting work: read PROJECT_CONTEXT.md, this file, TASKS.md and DECISIONS.md.

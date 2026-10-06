@@ -54,3 +54,26 @@ Date: 2026-10-06
 Decision: Reject Random Forest and retain Ridge Regression as the baseline anomaly modeling approach.
 Reason: Evaluated in T016. RandomForestRegressor (depth 15) severely overfit the chronological train/test split, yielding a Test R² of -0.2259 (RMSE 1.2861) compared to Train R² of 0.5916. Ridge Regression remained stable with Test R² of 0.2660 (RMSE 0.9952). Tree-based models struggle to extrapolate temporal trends (tt, tt2, tt3) outside the training range, whereas the linear Ridge model generalizes chronological trends better.
 Date: 2026-10-06
+
+## ADR-013: POST /api/v1/predict — prediction scenario endpoint (T018)
+Decision: Add a single POST /api/v1/predict endpoint that uses the already-loaded Ridge pipeline to generate a predicted consumption for a user-supplied scenario.
+
+Contract:
+  Request:  { "apt": int, "hour": int(0–23), "dayofweek": int(1–7), "month": int(1–12), "temp_c": float(5–45) }
+  Response: { "apt": int, "hour": int, "dayofweek": int, "month": int, "temp_c": float,
+              "predicted_lnenergy": float, "predicted_kwh": float, "model_version": str,
+              "note": str }
+
+Internals:
+  - apt/hour/dayofweek/month/temp_c come from the user.
+  - tt, tt2, tt3 are held at dataset median (tt=154, tt2=23716, tt3=3652264) — they represent a mid-period time trend. This is explicitly stated in the response note.
+  - post/finpost/healthpost are resolved from the household's actual assignment in the dataset (each household has a fixed group).
+  - The existing sklearn Pipeline (preprocessor → RidgeCV) is called directly via store.model.predict().
+  - No model retraining. No new model artifact.
+
+Validation:
+  - apt must be in 1–19 (known households).
+  - hour: 0–23, dayofweek: 1–7 (ISO), month: 1–12, temp_c: 5.0–45.0°C.
+  - 422 Unprocessable Entity for out-of-range values (FastAPI Pydantic validation).
+  - 404 for unknown apt.
+Date: 2026-10-06

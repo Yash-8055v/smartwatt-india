@@ -19,8 +19,8 @@
 
 ## Priority P1 — should complete
 - [x] T016 Random Forest comparison. DONE — RF struggled with temporal extrapolation (Test R²=-0.2259); Ridge baseline retained.
-- [ ] T017 Household comparison view. IN PROGRESS
-- [ ] T018 Prediction scenario form.
+- [x] T017 Household comparison view. DONE — frontend/src/pages/Compare.jsx; /compare route; multi-select (2–5); metrics table + 3 bar charts; 843-module build passes.
+- [ ] T018 Prediction scenario form. IN PROGRESS
 - [ ] T019 Improved anomaly explanation.
 - [ ] T020 Demo seed/default household.
 

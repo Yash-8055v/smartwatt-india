@@ -559,3 +559,122 @@ class TestIntegration:
         meta = client.get("/api/v1/metadata").json()
         summ = client.get("/api/v1/summary").json()
         assert meta["selected_model"] == summ["model_metrics"]["selected_model"] == "Ridge"
+
+
+# ── /predict tests ────────────────────────────────────────────────────────────
+class TestPredict:
+    """Tests for POST /api/v1/predict (T018 — ADR-013)."""
+
+    BASE = "/api/v1/predict"
+    VALID_BODY = {
+        "apt": 7,
+        "hour": 14,
+        "dayofweek": 2,
+        "month": 10,
+        "temp_c": 25.0,
+    }
+
+    def test_valid_prediction_200(self, client):
+        r = client.post(self.BASE, json=self.VALID_BODY)
+        assert r.status_code == 200
+
+    def test_response_schema(self, client):
+        d = client.post(self.BASE, json=self.VALID_BODY).json()
+        assert "apt" in d
+        assert "predicted_kwh" in d
+        assert "predicted_lnenergy" in d
+        assert "model_version" in d
+        assert "note" in d
+
+    def test_predicted_kwh_is_positive(self, client):
+        d = client.post(self.BASE, json=self.VALID_BODY).json()
+        assert d["predicted_kwh"] > 0
+
+    def test_echo_inputs(self, client):
+        d = client.post(self.BASE, json=self.VALID_BODY).json()
+        assert d["apt"] == self.VALID_BODY["apt"]
+        assert d["hour"] == self.VALID_BODY["hour"]
+        assert d["dayofweek"] == self.VALID_BODY["dayofweek"]
+        assert d["month"] == self.VALID_BODY["month"]
+        assert d["temp_c"] == self.VALID_BODY["temp_c"]
+
+    def test_all_valid_apts_work(self, client):
+        for apt_id in range(1, 20):
+            body = {**self.VALID_BODY, "apt": apt_id}
+            r = client.post(self.BASE, json=body)
+            assert r.status_code == 200, f"Apt {apt_id} predict failed"
+
+    def test_peak_hour_higher_than_off_peak(self, client):
+        """Hour 20 (8 pm, verified peak) predicts more than hour 4 (4 am, trough) for apt 7."""
+        peak = client.post(self.BASE, json={**self.VALID_BODY, "hour": 20}).json()
+        off_peak = client.post(self.BASE, json={**self.VALID_BODY, "hour": 4}).json()
+        assert peak["predicted_kwh"] > off_peak["predicted_kwh"]
+
+    def test_hot_temperature_higher_than_cold(self, client):
+        """Positive correlation: higher temp → higher predicted consumption (r=0.12 EDA)."""
+        hot = client.post(self.BASE, json={**self.VALID_BODY, "temp_c": 38.0}).json()
+        cold = client.post(self.BASE, json={**self.VALID_BODY, "temp_c": 10.0}).json()
+        assert hot["predicted_kwh"] > cold["predicted_kwh"]
+
+    def test_invalid_apt_returns_404(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "apt": 99})
+        assert r.status_code == 404
+
+    def test_invalid_hour_out_of_range_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "hour": 24})
+        assert r.status_code == 422
+
+    def test_invalid_hour_negative_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "hour": -1})
+        assert r.status_code == 422
+
+    def test_invalid_dayofweek_zero_returns_422(self, client):
+        """dayofweek must be 1–7 (ISO). 0 is invalid."""
+        r = client.post(self.BASE, json={**self.VALID_BODY, "dayofweek": 0})
+        assert r.status_code == 422
+
+    def test_invalid_dayofweek_eight_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "dayofweek": 8})
+        assert r.status_code == 422
+
+    def test_invalid_month_zero_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "month": 0})
+        assert r.status_code == 422
+
+    def test_invalid_month_thirteen_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "month": 13})
+        assert r.status_code == 422
+
+    def test_temp_too_low_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "temp_c": 4.9})
+        assert r.status_code == 422
+
+    def test_temp_too_high_returns_422(self, client):
+        r = client.post(self.BASE, json={**self.VALID_BODY, "temp_c": 45.1})
+        assert r.status_code == 422
+
+    def test_boundary_values_valid(self, client):
+        """Hour 0, dayofweek 1, month 1, temp_c at lower bound."""
+        body = {"apt": 1, "hour": 0, "dayofweek": 1, "month": 1, "temp_c": 5.0}
+        r = client.post(self.BASE, json=body)
+        assert r.status_code == 200
+
+    def test_boundary_values_max(self, client):
+        """Hour 23, dayofweek 7, month 12, temp_c at upper bound."""
+        body = {"apt": 19, "hour": 23, "dayofweek": 7, "month": 12, "temp_c": 45.0}
+        r = client.post(self.BASE, json=body)
+        assert r.status_code == 200
+
+    def test_missing_field_returns_422(self, client):
+        """Missing required field should fail validation."""
+        r = client.post(self.BASE, json={"apt": 7, "hour": 14, "dayofweek": 2, "month": 10})
+        assert r.status_code == 422
+
+    def test_model_version_in_response(self, client):
+        d = client.post(self.BASE, json=self.VALID_BODY).json()
+        assert d["model_version"] == "v0.1.0"
+
+    def test_predicted_kwh_reasonable_range(self, client):
+        """Predicted kWh should be within dataset range (0.01–10 kWh/hr roughly)."""
+        d = client.post(self.BASE, json=self.VALID_BODY).json()
+        assert 0.01 < d["predicted_kwh"] < 10.0

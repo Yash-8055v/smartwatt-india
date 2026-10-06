@@ -113,3 +113,24 @@ class GlobalSummaryResponse(BaseModel):
     date_start: str
     date_end: str
     model_metrics: dict[str, Any]
+
+
+# ── Predict ────────────────────────────────────────────────────────────────────
+class PredictRequest(BaseModel):
+    apt: int = Field(..., description="Household ID (1–19)")
+    hour: int = Field(..., ge=0, le=23, description="Hour of day (0–23)")
+    dayofweek: int = Field(..., ge=1, le=7, description="ISO day of week (1=Monday … 7=Sunday)")
+    month: int = Field(..., ge=1, le=12, description="Month (1–12)")
+    temp_c: float = Field(..., ge=5.0, le=45.0, description="Temperature in °C (5–45)")
+
+
+class PredictResponse(BaseModel):
+    apt: int
+    hour: int
+    dayofweek: int
+    month: int
+    temp_c: float
+    predicted_lnenergy: float
+    predicted_kwh: float
+    model_version: str
+    note: str

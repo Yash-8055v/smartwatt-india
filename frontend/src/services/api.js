@@ -32,4 +32,18 @@ export const api = {
   },
   anomalies: (id, { minMethods = 1 } = {}) =>
     get(`/households/${id}/anomalies?min_methods=${minMethods}`),
+  predict: (body) => {
+    const BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000').replace(/\/$/, '')
+    return fetch(`${BASE}/api/v1/predict`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }).then(async (res) => {
+      if (!res.ok) {
+        const text = await res.text().catch(() => '')
+        throw new Error(`API ${res.status}: ${text || res.statusText}`)
+      }
+      return res.json()
+    })
+  },
 }

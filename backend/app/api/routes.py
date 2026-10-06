@@ -1,22 +1,25 @@
 """
 SmartWatt India — API Routes
 Endpoints:
-  GET /health
-  GET /metadata
-  GET /households
-  GET /households/{apt_id}
-  GET /households/{apt_id}/timeseries
-  GET /households/{apt_id}/anomalies
-  GET /summary
+  GET  /health
+  GET  /metadata
+  GET  /households
+  GET  /households/{apt_id}
+  GET  /households/{apt_id}/timeseries
+  GET  /households/{apt_id}/anomalies
+  GET  /summary
+  POST /predict
 """
 
 import math
 from typing import Optional
 
-import numpy as np
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.core.config import DATA_VERSION, MODEL_VERSION
+import numpy as np
+import pandas as pd
+
 from app.schemas.responses import (
     AnomaliesResponse,
     AnomalyPoint,
@@ -25,6 +28,8 @@ from app.schemas.responses import (
     HouseholdSummary,
     HouseholdsResponse,
     MetadataResponse,
+    PredictRequest,
+    PredictResponse,
     TimeseriesPoint,
     TimeseriesResponse,
 )
@@ -238,4 +243,89 @@ def summary(store: DataStore = Depends(get_store)):
             "test_rmse": float(test_m.get("rmse", 0)),
             "test_mae": float(test_m.get("mae", 0)),
         },
+    )
+
+
+# ── Household treatment assignments (from dataset — fixed per household) ────────
+# finpost=1 → financial treatment group; healthpost=1 → health treatment group
+# Resolved from the raw Stata data (ADR-011, ADR-013). Used by /predict.
+_HH_TREATMENT: dict[int, dict[str, int]] = {
+    1:  {"finpost": 1, "healthpost": 0},
+    2:  {"finpost": 1, "healthpost": 0},
+    3:  {"finpost": 0, "healthpost": 1},
+    4:  {"finpost": 0, "healthpost": 1},
+    5:  {"finpost": 0, "healthpost": 0},
+    6:  {"finpost": 1, "healthpost": 0},
+    7:  {"finpost": 0, "healthpost": 1},
+    8:  {"finpost": 0, "healthpost": 0},
+    9:  {"finpost": 1, "healthpost": 0},
+    10: {"finpost": 0, "healthpost": 0},
+    11: {"finpost": 0, "healthpost": 0},
+    12: {"finpost": 0, "healthpost": 0},
+    13: {"finpost": 0, "healthpost": 0},
+    14: {"finpost": 0, "healthpost": 1},
+    15: {"finpost": 0, "healthpost": 1},
+    16: {"finpost": 1, "healthpost": 0},
+    17: {"finpost": 1, "healthpost": 0},
+    18: {"finpost": 0, "healthpost": 0},
+    19: {"finpost": 0, "healthpost": 1},
+}
+
+# Time-trend medians from the training dataset (tt=row number 1-indexed, monthly)
+# Held constant for prediction scenarios (mid-period baseline per ADR-013).
+_TT_MEDIAN  = 154.0
+_TT2_MEDIAN = 23716.0
+_TT3_MEDIAN = 3652264.0
+# post=1 corresponds to the post-intervention period; use 1 ("during study") as default
+_POST_DEFAULT = 1
+
+
+# ── POST /predict ─────────────────────────────────────────────────────────────
+@router.post("/predict", response_model=PredictResponse, tags=["analysis"])
+def predict_consumption(body: PredictRequest, store: DataStore = Depends(get_store)):
+    """Return expected hourly electricity consumption for a given scenario.
+
+    Uses the trained Ridge regression pipeline already loaded in DataStore.
+    Contextual time-trend (tt/tt2/tt3) and treatment flags (post/finpost/healthpost)
+    are held at dataset medians / household assignments respectively (ADR-013).
+    """
+    if body.apt not in store.all_households():
+        raise HTTPException(
+            status_code=404,
+            detail=f"Household {body.apt} not found. Valid IDs: {store.all_households()}",
+        )
+
+    treatment = _HH_TREATMENT.get(body.apt, {"finpost": 0, "healthpost": 0})
+
+    row = pd.DataFrame([{
+        "apt":        body.apt,
+        "hour":       body.hour,
+        "dayofweek":  body.dayofweek,
+        "month":      body.month,
+        "temp_c":     body.temp_c,
+        "tt":         _TT_MEDIAN,
+        "tt2":        _TT2_MEDIAN,
+        "tt3":        _TT3_MEDIAN,
+        "post":       _POST_DEFAULT,
+        "finpost":    treatment["finpost"],
+        "healthpost": treatment["healthpost"],
+    }])
+
+    pred_lnenergy = float(store.model.predict(row)[0])
+    pred_kwh      = float(np.exp(pred_lnenergy))
+
+    return PredictResponse(
+        apt=body.apt,
+        hour=body.hour,
+        dayofweek=body.dayofweek,
+        month=body.month,
+        temp_c=body.temp_c,
+        predicted_lnenergy=round(pred_lnenergy, 6),
+        predicted_kwh=round(pred_kwh, 6),
+        model_version=MODEL_VERSION,
+        note=(
+            "Expected consumption from Ridge regression (α=100). "
+            "Time-trend held at dataset median. "
+            "This is a statistical scenario estimate, not a guaranteed forecast."
+        ),
     )

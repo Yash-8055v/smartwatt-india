@@ -18,25 +18,28 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
-## Current state (updated 2026-10-06 — T015 complete)
+## Current state (updated 2026-10-06 — T017 complete)
 
-**Milestone:** M10 — P0 MVP Complete! Starting Priority P1 Tasks.
+**Milestone:** M11 — Compare page live on GitHub; continuing P1 tasks.
 
-**Backend URL:** `https://smartwatt-india-backend.onrender.com` (Live)
-**Frontend URL:** Not live yet (Manual Render step required, see `T015_deployment_guide.md`)
+**New page: `/compare` (Compare.jsx)**
+- Multi-select checkboxes for all 19 households (2–5 max enforced)
+- "Select first 5" / "Clear all" shortcuts
+- Metrics table: n_obs, mean kWh, median kWh, std kWh, n_anomalies, anomaly rate
+- Min/max row highlighting (orange=highest, green=lowest)
+- Bar charts: avg consumption (kWh/hr), anomaly rate (%), anomaly count
+- Custom dark tooltips matching site style
+- Loading / error / empty states
+- Data source: `/api/v1/households` response fields only (no new API calls)
+- Navbar: Dashboard | Anomaly Explorer | **Compare** | Methodology
 
-**Remaining manual step for T015 (frontend live on Render):**
-1. Go to https://dashboard.render.com
-2. New → Static Site → connect `Yash-8055v/smartwatt-india`
-3. Name: `smartwatt-india-frontend`
-4. Build Command: `npm ci && npm run build`
-5. Publish Directory: `dist`
-6. Add Environment Variable: `VITE_API_BASE_URL` = `https://smartwatt-india-backend.onrender.com`
+**GitHub:** `7ac1e2f main` — pushed
 
-**Next task: T017 — Household comparison view.**
-- Create a new frontend view/page or add a section to the Dashboard to compare multiple households side-by-side.
-- Compare metrics like average consumption, peak consumption, and anomaly counts.
-- It will likely require hitting `/api/v1/households/{id}` and `/api/v1/households/{id}/anomalies` for multiple households and plotting them together.
+**Next task: T018 — Prediction scenario form**
+- A form UI to let users input values (household, hour, temp, day) and call the backend
+- NOTE: Current backend has no `/predict` endpoint. A new endpoint may be required.
+- Decide: (a) add `/api/v1/predict` to backend, or (b) skip T018 if it conflicts with the "no API contract changes" rule.
+- Check if sklearn pipeline can serve predictions without reloading model artifacts.
 
 **Dev commands:**
 ```bash

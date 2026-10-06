@@ -4,6 +4,7 @@ const links = [
   { to: '/', label: 'Dashboard' },
   { to: '/anomalies', label: 'Anomaly Explorer' },
   { to: '/compare', label: 'Compare' },
+  { to: '/predict', label: 'Predict' },
   { to: '/methodology', label: 'Methodology' },
 ]
 

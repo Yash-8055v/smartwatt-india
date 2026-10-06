@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard'
 import AnomalyExplorer from './pages/AnomalyExplorer'
 import Methodology from './pages/Methodology'
 import Compare from './pages/Compare'
+import Predict from './pages/Predict'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/anomalies" element={<AnomalyExplorer />} />
           <Route path="/compare" element={<Compare />} />
+          <Route path="/predict" element={<Predict />} />
           <Route path="/methodology" element={<Methodology />} />
         </Routes>
       </main>
