@@ -2,6 +2,40 @@ import { useState, useMemo } from 'react'
 import { fmtTs, fmtNum, methodLabels } from '../utils/format'
 import { SeverityBadge, MethodTag, Empty } from './ui'
 
+function exportToCsv(data, filename) {
+  if (!data || !data.length) return
+  
+  const headers = [
+    'apt_id', 'timestamp', 'energy_kwh', 'lnenergy', 'lnenergy_predicted',
+    'residual', 'feat_zscore_global', 'feat_rolling_zscore', 'residual_zscore',
+    'anomaly_method_count', 'methods'
+  ]
+  
+  const rows = data.map(row => {
+    return headers.map(header => {
+      if (header === 'methods') {
+        const methods = methodLabels(row).join('; ')
+        return `"${methods}"`
+      }
+      const val = row[header]
+      if (val == null) return ''
+      if (typeof val === 'string') return `"${val}"`
+      return val
+    }).join(',')
+  })
+  
+  const csvContent = [headers.join(','), ...rows].join('\n')
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  
+  const link = document.createElement('a')
+  link.href = url
+  link.setAttribute('download', filename)
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 /**
  * Anomaly data table with client-side sort and severity filter.
  * Props: anomalies – array of AnomalyPoint from API; showHousehold – bool
@@ -55,7 +89,16 @@ export default function AnomalyTable({ anomalies = [], showHousehold = false }) 
             ≥{n}
           </button>
         ))}
-        <span className="text-xs text-gray-500 ml-auto">{filtered.length.toLocaleString()} rows</span>
+        <button
+          onClick={() => {
+            const apt = showHousehold ? 'all' : (filtered[0]?.apt_id ?? 'export')
+            exportToCsv(filtered, `smartwatt-anomalies-apt-${apt}.csv`)
+          }}
+          className="ml-auto px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center gap-2"
+        >
+          <span>Export CSV</span>
+        </button>
+        <span className="text-xs text-gray-500">{filtered.length.toLocaleString()} rows</span>
       </div>
 
       <div className="overflow-x-auto rounded-lg border border-[#2e3347]">

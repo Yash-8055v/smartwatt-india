@@ -18,7 +18,7 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
-## Current state (updated 2026-10-06 — T020 complete)
+## Current state (updated 2026-10-06 — T021 complete)
 
 **Milestone:** M14 — P2 tasks started.
 
@@ -40,11 +40,11 @@ If blocked by missing data, dependency, deployment credential or ambiguous requi
 
 **Navbar:** Dashboard | Anomaly Explorer | Compare | **Predict** | Methodology
 
-**Next task: T021 — CSV export**
-- Allow users to export useful anomaly/consumption data as CSV.
-- Prefer a frontend-generated CSV using already available API data (Anomaly Explorer, etc.).
-- CSV should contain meaningful fields (household, timestamp, consumption, anomaly status, etc.).
-- Do not add a database or unnecessary backend infrastructure.
+**Next task: T022 — Advanced filters**
+- Add useful filters based ONLY on existing API data.
+- Recommended filters: Household (already exists), Detection method, Date range (if API supports it).
+- Requirements: clear/reset filters button, show filtered count, preserve table.
+- Do NOT add a backend endpoint or change the API contract.
 
 **Dev commands:**
 ```bash

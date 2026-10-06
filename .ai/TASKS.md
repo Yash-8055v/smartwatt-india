@@ -23,8 +23,8 @@
 - [x] T018 Prediction scenario form. DONE — POST /api/v1/predict + Predict.jsx; 107/107 pytest; ADR-013.
 - [x] T019 Improved anomaly explanation. DONE — Rewrote AnomalyExplorer with expandable plain-language tooltips for methods.
 - [x] T020 Demo seed/default household. DONE — Changed default apt selection to 1 in Dashboard, AnomalyExplorer, and Predict.
-- [ ] T021 CSV export. IN PROGRESS
-- [ ] T022 Advanced filters.
+- [x] T021 CSV export. DONE — Added 'Export CSV' button to AnomalyTable (frontend-generated).
+- [ ] T022 Advanced filters. IN PROGRESS
 - [ ] T023 Additional statistical tests.
 
 ## Agent execution protocol
