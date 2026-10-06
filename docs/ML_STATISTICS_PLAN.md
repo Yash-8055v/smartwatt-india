@@ -23,6 +23,18 @@ Initial rule for strong evidence may use `abs(z) >= 3`, but thresholds must be t
 ### IQR
 `IQR = Q3 - Q1`; lower = Q1 - 1.5*IQR; upper = Q3 + 1.5*IQR.
 
+### Advanced Diagnostics (T023)
+- **Durbin-Watson Test**: Detects first-order autocorrelation in residuals.
+  - *Purpose*: Evaluates whether prediction errors are temporally correlated.
+  - *Result*: Mean DW statistic = 0.49.
+  - *Interpretation*: Indicates positive autocorrelation. Periods of high/low unexplained consumption tend to cluster.
+  - *Limitation*: Only detects first-order (lag-1) autocorrelation.
+- **Spearman Rank Correlation (Heteroscedasticity)**:
+  - *Purpose*: Checks if prediction errors scale with the predicted value.
+  - *Result*: Correlation = 0.050 (p=5.57e-13).
+  - *Interpretation*: Minor but statistically significant positive correlation, meaning errors increase slightly as expected consumption increases. Log transformation mostly mitigated this.
+  - *Limitation*: Does not formalize a functional form for the variance.
+
 ## 3. ML layer
 Primary model: **Linear Regression or Ridge Regression** as interpretable baseline.
 Optional comparison: **RandomForestRegressor** if time permits.
