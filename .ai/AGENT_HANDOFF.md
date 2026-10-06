@@ -18,9 +18,9 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
-## Current state (updated 2026-10-06 — T019 complete)
+## Current state (updated 2026-10-06 — T020 complete)
 
-**Milestone:** M13 — P1 tasks finishing up.
+**Milestone:** M14 — P2 tasks started.
 
 **GitHub:** `(Pending commit)`
 
@@ -40,12 +40,11 @@ If blocked by missing data, dependency, deployment credential or ambiguous requi
 
 **Navbar:** Dashboard | Anomaly Explorer | Compare | **Predict** | Methodology
 
-**Next task: T020 — Demo seed/default household**
-- Make the deployed demo immediately usable.
-- Use an actual household from the existing API/data (prefer Apt 1 as default).
-- Apply sensible defaults where household selection is required (Dashboard, Anomaly Explorer, Predict, Compare).
-- Handle asynchronous API loading correctly and preserve loading/error states.
-- Do NOT fabricate data, add a database, or add a backend endpoint.
+**Next task: T021 — CSV export**
+- Allow users to export useful anomaly/consumption data as CSV.
+- Prefer a frontend-generated CSV using already available API data (Anomaly Explorer, etc.).
+- CSV should contain meaningful fields (household, timestamp, consumption, anomaly status, etc.).
+- Do not add a database or unnecessary backend infrastructure.
 
 **Dev commands:**
 ```bash

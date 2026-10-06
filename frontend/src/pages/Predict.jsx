@@ -151,7 +151,7 @@ function PredictionResult({ result, inputs }) {
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function Predict() {
   const [form, setForm] = useState({
-    apt: 7,
+    apt: 1,
     hour: 18,
     dayofweek: 3,
     month: 10,
@@ -216,7 +216,7 @@ export default function Predict() {
   }
 
   function handleReset() {
-    setForm({ apt: 7, hour: 18, dayofweek: 3, month: 10, temp_c: 25 })
+    setForm({ apt: 1, hour: 18, dayofweek: 3, month: 10, temp_c: 25 })
     setTempInput('25')
     setResult(null)
     setError(null)

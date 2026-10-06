@@ -22,10 +22,8 @@
 - [x] T017 Household comparison view. DONE — frontend/src/pages/Compare.jsx; /compare route; multi-select (2–5); metrics table + 3 bar charts; 843-module build passes.
 - [x] T018 Prediction scenario form. DONE — POST /api/v1/predict + Predict.jsx; 107/107 pytest; ADR-013.
 - [x] T019 Improved anomaly explanation. DONE — Rewrote AnomalyExplorer with expandable plain-language tooltips for methods.
-- [ ] T020 Demo seed/default household. IN PROGRESS
-
-## Priority P2 — only if time remains
-- [ ] T021 CSV export.
+- [x] T020 Demo seed/default household. DONE — Changed default apt selection to 1 in Dashboard, AnomalyExplorer, and Predict.
+- [ ] T021 CSV export. IN PROGRESS
 - [ ] T022 Advanced filters.
 - [ ] T023 Additional statistical tests.
 

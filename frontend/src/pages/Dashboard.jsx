@@ -9,7 +9,7 @@ import AnomalyTable from '../components/AnomalyTable'
 import { fmtNum } from '../utils/format'
 
 export default function Dashboard() {
-  const [aptId, setAptId] = useState(7)    // default: apt 7 (dense data, visible anomalies)
+  const [aptId, setAptId] = useState(1)    // default: apt 1 per T020
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
 

@@ -77,7 +77,7 @@ const METHODS = [
  * T019: improved detection method explanations for non-technical users.
  */
 export default function AnomalyExplorer() {
-  const [aptId, setAptId] = useState('all')
+  const [aptId, setAptId] = useState(1)
   const [expandedMethod, setExpandedMethod] = useState(null)
 
   const { data: households } = useFetch(() => api.households(), [])

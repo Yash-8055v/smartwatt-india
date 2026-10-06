@@ -1,6 +1,6 @@
 # SmartWatt Progress Tracker
 
-Last updated: 2026-10-06 (T019 Anomaly explanation complete)
+Last updated: 2026-10-06 (T020 Demo seed/default household complete)
 
 ## Overall status
 **100% MVP — Both backend and frontend configured for Render deployment. Manual Render UI steps remaining. Moving to P1 tasks.**
@@ -28,10 +28,10 @@ Last updated: 2026-10-06 (T019 Anomaly explanation complete)
 - [ ] 20 PPT/demo ready
 
 ## Current milestone
-M13 — P1 tasks finishing up.
+M14 — P2 tasks started.
 
 ## Active task
-T020 — Demo seed/default household.
+T021 — CSV export.
 
 ## Blockers
 None known.
@@ -51,6 +51,7 @@ None known.
 - 2026-10-06 (AI Agent): T017 complete. Created frontend/src/pages/Compare.jsx — dedicated /compare route. Multi-select checkboxes (2–5 max), metrics comparison table with min/max highlighting, 3 bar charts (avg kWh, anomaly rate%, anomaly count). Uses /api/v1/households response only. Build: 843 modules, 0 errors. Pushed to GitHub.
 - 2026-10-06 (AI Agent): T018 complete. POST /api/v1/predict added to backend (ADR-013). PredictRequest/Response Pydantic schemas. Validates apt 1-19, hour 0-23, dayofweek 1-7, month 1-12, temp_c 5-45. Treatment flags (finpost/healthpost) resolved per household; tt/tt2/tt3 held at medians. 21 new tests added; 107/107 pass. Frontend: Predict.jsx at /predict with form, result card, consumption bar, model disclaimer. Navbar updated. Build: 844 modules, 0 errors. Pushed 31aa63f.
 - 2026-10-06 (AI Agent): T019 complete. Rewrote AnomalyExplorer.jsx to use clear, non-technical explanations for detection methods. Preserved functionality and UI aesthetics. Build: 844 modules, 0 errors.
+- 2026-10-06 (AI Agent): T020 complete. Updated default household selection to Apt 1 in Dashboard, AnomalyExplorer, and Predict pages to make the deployed demo immediately usable. Build: 844 modules, 0 errors. Tests: 107/107 pass.
 
 ## Rule for AI agents
 Before starting work: read PROJECT_CONTEXT.md, this file, TASKS.md and DECISIONS.md.
