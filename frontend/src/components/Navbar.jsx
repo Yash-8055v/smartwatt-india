@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 const links = [
   { to: '/', label: 'Dashboard' },
   { to: '/anomalies', label: 'Anomaly Explorer' },
+  { to: '/compare', label: 'Compare' },
   { to: '/methodology', label: 'Methodology' },
 ]
 

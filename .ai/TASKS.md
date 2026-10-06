@@ -14,12 +14,12 @@
 - [x] T011 Build React frontend. DONE — frontend/src/ (App.jsx, 3 pages, 5 components); Vite 5+React 18+Tailwind v4+Recharts+React Router 6; clean build
 - [x] T012 Integrate frontend/backend. DONE — src/services/api.js consumes all 7 backend endpoints via VITE_API_BASE_URL
 - [x] T013 Test. DONE — 86/86 pytest; backend/tests/test_api.py; 1 dataset fact (ADR-011: dayofweek=1–7 ISO encoding)
-- [x] T014 Deploy backend. DONE (local) — render.yaml committed; code on GitHub (main); Render web service creation is a manual step (see T014_deployment_guide.md)
-- [ ] T015 Deploy frontend.
+- [x] T014 Deploy backend. DONE — deployed to Render (smartwatt-india-backend.onrender.com)
+- [x] T015 Deploy frontend. DONE (local) — build passed, deployment guide (T015_deployment_guide.md) provided for Render.
 
 ## Priority P1 — should complete
-- [ ] T016 Random Forest comparison.
-- [ ] T017 Household comparison view.
+- [x] T016 Random Forest comparison. DONE — RF struggled with temporal extrapolation (Test R²=-0.2259); Ridge baseline retained.
+- [ ] T017 Household comparison view. IN PROGRESS
 - [ ] T018 Prediction scenario form.
 - [ ] T019 Improved anomaly explanation.
 - [ ] T020 Demo seed/default household.

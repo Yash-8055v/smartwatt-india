@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
 import AnomalyExplorer from './pages/AnomalyExplorer'
 import Methodology from './pages/Methodology'
+import Compare from './pages/Compare'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/anomalies" element={<AnomalyExplorer />} />
+          <Route path="/compare" element={<Compare />} />
           <Route path="/methodology" element={<Methodology />} />
         </Routes>
       </main>

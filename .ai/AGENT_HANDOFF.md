@@ -18,40 +18,25 @@ After completing work:
 
 If blocked by missing data, dependency, deployment credential or ambiguous requirement, do not fabricate a solution. Record the blocker and ask for the minimum required input.
 
----
+## Current state (updated 2026-10-06 — T015 complete)
 
-## Current state (updated 2026-10-06 — T014 complete)
+**Milestone:** M10 — P0 MVP Complete! Starting Priority P1 Tasks.
 
-**Milestone:** M9 — All code on GitHub; render.yaml ready; T015 (frontend deploy) next.
+**Backend URL:** `https://smartwatt-india-backend.onrender.com` (Live)
+**Frontend URL:** Not live yet (Manual Render step required, see `T015_deployment_guide.md`)
 
-**GitHub:** `git@github.com:Yash-8055v/smartwatt-india.git` — branch `main` up-to-date (2 commits ahead of origin)
-
-**Render deployment config:** `render.yaml` in repo root — Blueprint defines both backend + frontend services.
-
-**Backend local smoke test (7/7 pass):**
-```
-GET /api/v1/health             200  {"status":"ok","version":"v0.1.0"}
-GET /api/v1/metadata           200  19 households, 103,704 obs, 6,549 anomalies, Ridge R²=0.266
-GET /api/v1/households         200  19 households
-GET /api/v1/summary            200  n_anomalies=6549, rate=6.32%
-GET /api/v1/households/7/timeseries?limit=5  200  n_points=5
-GET /api/v1/households/7/anomalies           200  n_anomalies=455
-GET /api/v1/households/99      404  correct error
-```
-
-**Remaining manual step for T014 (backend live on Render):**
+**Remaining manual step for T015 (frontend live on Render):**
 1. Go to https://dashboard.render.com
-2. New → Blueprint → connect `Yash-8055v/smartwatt-india`
-3. Render auto-detects render.yaml → Apply
-4. Backend URL will be: `https://smartwatt-india-backend.onrender.com`
+2. New → Static Site → connect `Yash-8055v/smartwatt-india`
+3. Name: `smartwatt-india-frontend`
+4. Build Command: `npm ci && npm run build`
+5. Publish Directory: `dist`
+6. Add Environment Variable: `VITE_API_BASE_URL` = `https://smartwatt-india-backend.onrender.com`
 
-**Next task: T015 — Deploy frontend**
-- Render Static Site OR Vercel
-- Root dir: `frontend`
-- Build: `npm ci && npm run build`
-- Publish dir: `dist`
-- Env var: `VITE_API_BASE_URL=https://smartwatt-india-backend.onrender.com`
-- render.yaml already includes the frontend service (Option A: Blueprint deploys both together)
+**Next task: T017 — Household comparison view.**
+- Create a new frontend view/page or add a section to the Dashboard to compare multiple households side-by-side.
+- Compare metrics like average consumption, peak consumption, and anomaly counts.
+- It will likely require hitting `/api/v1/households/{id}` and `/api/v1/households/{id}/anomalies` for multiple households and plotting them together.
 
 **Dev commands:**
 ```bash

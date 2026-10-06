@@ -49,3 +49,8 @@ Date: 2026-10-06
 Decision: Do NOT recode the dayofweek column; leave it as-is from the raw Stata dataset.
 Reason: Discovered during T013 testing. The raw dataset (Table_9_3_Final.dta) encodes day-of-week as ISO weekday (1=Mon, 7=Sun), not pandas 0-indexed (0=Mon, 6=Sun). The model was trained with this encoding and all downstream code uses it consistently. Recoding would require re-running the full ML pipeline. Clients and tests must expect 1–7.
 Date: 2026-10-06
+
+## ADR-012: Retain Ridge Regression over Random Forest
+Decision: Reject Random Forest and retain Ridge Regression as the baseline anomaly modeling approach.
+Reason: Evaluated in T016. RandomForestRegressor (depth 15) severely overfit the chronological train/test split, yielding a Test R² of -0.2259 (RMSE 1.2861) compared to Train R² of 0.5916. Ridge Regression remained stable with Test R² of 0.2660 (RMSE 0.9952). Tree-based models struggle to extrapolate temporal trends (tt, tt2, tt3) outside the training range, whereas the linear Ridge model generalizes chronological trends better.
+Date: 2026-10-06
