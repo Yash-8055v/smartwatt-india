@@ -167,9 +167,9 @@ export default function AnomalyTable({ anomalies = [], showHousehold = false }) 
       {filtered.length === 0 ? (
         <Empty text="No anomalies match the current filters." />
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-[#2e3347]">
+        <div className="overflow-x-auto overflow-y-auto max-h-[500px] rounded-lg border border-[#2e3347]">
           <table className="w-full text-sm">
-            <thead className="bg-[#22263a]">
+            <thead className="bg-[#22263a] sticky top-0 z-10 shadow-sm">
             <tr>
               {showHousehold && <Th k="apt_id">Apt</Th>}
               <Th k="timestamp">Timestamp</Th>
